@@ -19,10 +19,10 @@ import {
 } from "../../../const/contractAddresses";
 import styles from "../../../styles/Token.module.css";
 import Link from "next/link";
-import randomColor from "../../../util/randomColor";
+import randomColor from "../../../util/randomColor"
 import Skeleton from "../../../components/Skeleton/Skeleton";
 import toast, { Toaster } from "react-hot-toast";
-import toastStyle from "../../../util/toastConfig";
+import toastStyle from "../../../util/toastConfig"
 
 type Props = {
   nft: NFT;

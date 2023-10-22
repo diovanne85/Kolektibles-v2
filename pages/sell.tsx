@@ -13,7 +13,7 @@ import { NFT as NFTType } from "@thirdweb-dev/sdk";
 import SaleInfo from "../components/SaleInfo/SaleInfo";
 
 export default function Sell() {
-  // Load all of the NFTs from the NFT Collection
+  
   const { contract } = useContract(NFT_COLLECTION_ADDRESS);
   const address = useAddress();
   const { data, isLoading } = useOwnedNFTs(contract, address);

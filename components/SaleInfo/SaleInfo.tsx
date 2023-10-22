@@ -47,23 +47,21 @@ export default function SaleInfo({ nft }: Props) {
     "marketplace-v3"
   );
 
-  // useContract is a React hook that returns an object with the contract key.
-  // The value of the contract key is an instance of an NFT_COLLECTION on the blockchain.
-  // This instance is created from the contract address (NFT_COLLECTION_ADDRESS)
+ 
   const { contract: nftCollection } = useContract(NFT_COLLECTION_ADDRESS);
 
-  // Hook provides an async function to create a new auction listing
+
   const { mutateAsync: createAuctionListing } =
     useCreateAuctionListing(marketplace);
 
-  // Hook provides an async function to create a new direct listing
+ 
   const { mutateAsync: createDirectListing } =
     useCreateDirectListing(marketplace);
 
-  // Manage form submission state using tabs and conditional rendering
+
   const [tab, setTab] = useState<"direct" | "auction">("direct");
 
-  // Manage form values using react-hook-form library: Auction form
+
   const { register: registerAuction, handleSubmit: handleSubmitAuction } =
     useForm<AuctionFormData>({
       defaultValues: {
@@ -76,7 +74,7 @@ export default function SaleInfo({ nft }: Props) {
       },
     });
 
-  // User requires to set marketplace approval before listing
+ 
   async function checkAndProvideApproval() {
     // Check if approval is required
     const hasApproval = await nftCollection?.call("isApprovedForAll", [
@@ -84,7 +82,7 @@ export default function SaleInfo({ nft }: Props) {
       MARKETPLACE_ADDRESS,
     ]);
 
-    // If it is, provide approval
+ 
     if (!hasApproval) {
       const txResult = await nftCollection?.call("setApprovalForAll", [
         MARKETPLACE_ADDRESS,
@@ -103,7 +101,7 @@ export default function SaleInfo({ nft }: Props) {
     return true;
   }
 
-  // Manage form values using react-hook-form library: Direct form
+  
   const { register: registerDirect, handleSubmit: handleSubmitDirect } =
     useForm<DirectFormData>({
       defaultValues: {

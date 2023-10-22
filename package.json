@@ -12,15 +12,20 @@
   },
   "dependencies": {
     "@thirdweb-dev/chains": "^0",
-    "@thirdweb-dev/react": "^4",
-    "@thirdweb-dev/sdk": "^4",
+    "@thirdweb-dev/react": "^3.14.35",
+    "@thirdweb-dev/sdk": "^3.10.54",
+    "alchemy-sdk": "^2.10.1",
+    "axios": "^1.5.1",
+    "dotenv": "^16.3.1",
     "ethers": "^5",
     "next": "^13",
     "nextjs-progressbar": "^0.0.16",
     "react": "^18.2",
     "react-dom": "^18.2",
     "react-hook-form": "^7.43.0",
-    "react-hot-toast": "^2.4.0"
+    "react-hot-toast": "^2.4.0",
+    "viem": "^1.16.6",
+    "wagmi": "^1.4.5"
   },
   "devDependencies": {
     "@types/node": "^18.11.11",
