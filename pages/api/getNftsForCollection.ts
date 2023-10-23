@@ -22,7 +22,7 @@ export default async function handler(req, res) {
     });
 
     const formattedNfts = nfts.nfts.map((nft) => {
-      const { contract, title, tokenType, tokenId, description, owner, listingPrice, media } = nft;
+      const { contract, title, tokenType, tokenId, description, media } = nft;
 
       return {
         contract: contract.address,
@@ -35,8 +35,6 @@ export default async function handler(req, res) {
         tokenId,
         title,
         description,
-        owner,
-        listingPrice
       };
     });
 
