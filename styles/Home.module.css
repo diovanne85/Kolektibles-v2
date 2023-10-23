@@ -10,6 +10,7 @@
   align-self: center;
   text-align: center;
   max-width: 100vw;
+  padding-top: 5rem;
 }
 
 .content {
@@ -80,7 +81,7 @@
   margin-top: clamp(-30px, calc(-7vw + 57px), 5px);
   margin-bottom: 20px;
   color: #fff;
-  font-size: Min(12vw, 80px);
+  font-size: Min(12vw, 60px);
   font-style: normal;
   font-weight: 700;
   letter-spacing: 1.2px;
@@ -91,14 +92,14 @@
 
 .heroTitleGradient {
   padding-right: 12px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .heroSubtitle {
   max-width: 640px;
   margin: 0 0 40px;
   color: hsla(0, 0%, 100%, 0.4);
-  font-size: Min(3.8vw, 20px);
+  font-size: Min(3.8vw, 15px);
   letter-spacing: 0.3px;
   line-height: 140%;
   text-align: center;
@@ -272,7 +273,7 @@
 .link {
   text-decoration: none;
   transition: all 0.15s ease-in-out;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .link:hover {

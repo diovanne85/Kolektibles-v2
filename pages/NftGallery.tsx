@@ -14,6 +14,8 @@ interface NFT {
   verified: string;
   contract?: string;
   description: string;
+  collectionName: string;
+  tokenId:string;
 }
 
 interface NFTGalleryProps {}
@@ -204,6 +206,7 @@ interface NftCardProps {
 function NftCard({ nft }: NftCardProps) {
   return (
     <div className={styles.card_container}>
+      
       <div className={styles.image_container}>
         {nft.format === "mp4" ? (
           <video src={nft.media} controls>
@@ -216,6 +219,7 @@ function NftCard({ nft }: NftCardProps) {
       <div className={styles.info_container}>
         <div className={styles.title_container}>
           <h3>{nft.title}</h3>
+          <h3>{nft.collectionName}</h3>
         </div>
         <hr className={styles.separator} />
         <div className={styles.symbol_contract_container}>
@@ -233,6 +237,7 @@ function NftCard({ nft }: NftCardProps) {
               />
             ) : null}
           </div>
+        
           <div className={styles.contract_container}>
             <p className={styles.contract_container}>
               {nft.contract?.slice(0, 6)}...

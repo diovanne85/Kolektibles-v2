@@ -2,9 +2,12 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import { motion } from "framer-motion"
+import { useState } from "react";
 
 
 const Home: NextPage = () => {
+  const[rotate,setRotate] = useState(false);
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -21,7 +24,23 @@ const Home: NextPage = () => {
               />
             </div>
           </div>
-          <div className={styles.heroAssetFrame}>
+          <motion.div
+            className={styles.heroAssetFrame}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.1,
+              ease: [0.5, 0.71, 0.2, 0.51],
+              scale: {
+                type: "spring",
+                damping: 5,
+                stiffness: 80,
+                restDelta: 0.005,
+                repeat:Infinity,
+                repeatDelay:0.1,
+              },
+            }}
+          >
             <Image
               src="/hero-asset.png"
               width={460}
@@ -30,7 +49,7 @@ const Home: NextPage = () => {
               quality={100}
               className={styles.heroAsset}
             />
-          </div>
+          </motion.div>
           <div className={styles.heroBodyContainer}>
             <div className={styles.heroBody}>
               <h1 className={styles.heroTitle}>
@@ -41,15 +60,12 @@ const Home: NextPage = () => {
                 faster than ever.
               </h1>
               <p className={styles.heroSubtitle}>
-                <Link
-                  className={styles.link}
-                  href="/"
-                  target=""
-                >
+                <Link className={styles.link} href="/" target="">
                   Kolektibles
                 </Link>{" "}
                 gives you the nft you need to collect audited contracts and
-                Quality NFT marketplaces for the <b>collections</b>, <i>not Prices</i>.
+                Quality NFT marketplaces for the <b>collections</b>,{" "}
+                <i>not Prices</i>.
               </p>
 
               <div className={styles.heroCtaContainer}>
