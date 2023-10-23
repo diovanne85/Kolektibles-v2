@@ -26,7 +26,7 @@ export default function NFTGallery(props: NFTGalleryProps) {
   const [pageKey, setPageKey] = useState<string | undefined>();
   const [spamFilter, setSpamFilter] = useState<boolean>(true);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const address = useAddress(true);
+  const address = useAddress();
   const [chain, setChain] = useState(
     process.env.NEXT_PUBLIC_ALCHEMY_NETWORK
   );
