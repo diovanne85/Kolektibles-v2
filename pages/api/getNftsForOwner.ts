@@ -1,15 +1,15 @@
 import { Network, Alchemy, NftFilters } from "alchemy-sdk";
 
-export default async function handler(req, res) {
+export default async function handler(requests, response) {
 
   const { address, pageSize, chain, excludeFilter, pageKey } = JSON.parse(
-    req.body
+    requests.body
   );
   console.log(chain);
 
   
-  if (req.method !== "POST") {
-    res.status(405).send({ message: "Only POST requests allowed" });
+  if (requests.method !== "POST") {
+    response.status(405).send({ message: "Only POST requests allowed" });
     return;
   }
 
@@ -48,11 +48,11 @@ export default async function handler(req, res) {
     });
 
    
-    res.status(200).json({ nfts: formattedNfts, pageKey: nfts.pageKey });
+    response.status(200).json({ nfts: formattedNfts, pageKey: nfts.pageKey });
   } catch (e) {
   
     console.warn(e);
-    res.status(500).send({
+    response.status(500).send({
       message: "something went wrong, check the log in your terminal",
     });
   }
