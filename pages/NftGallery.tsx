@@ -22,10 +22,10 @@ export default function NFTGallery(props: NFTGalleryProps) {
   const [nfts, setNfts] = useState<NFT[] | undefined>();
   const [walletOrCollectionAddress, setWalletOrCollectionAddress] =
     useState<string>("moistowl.eth");
-  const [fetchMethod, setFetchMethod] = useState<string>("wallet");
+  const [fetchMethod, setFetchMethod] = useState("wallet");
   const [pageKey, setPageKey] = useState<string | undefined>();
-  const [spamFilter, setSpamFilter] = useState<boolean>(true);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [spamFilter, setSpamFilter] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const address = useAddress();
   const [chain, setChain] = useState(
     process.env.NEXT_PUBLIC_ALCHEMY_NETWORK
@@ -44,7 +44,7 @@ export default function NFTGallery(props: NFTGalleryProps) {
         );
         break;
       case "connectedWallet":
-        setWalletOrCollectionAddress(address);
+        setWalletOrCollectionAddress('address');
         break;
     }
     setFetchMethod(event.target.value);
