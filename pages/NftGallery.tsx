@@ -5,26 +5,37 @@ import { useEffect, useState } from "react";
 import styles from "../styles/NftGallery.module.css";
 import { useAddress } from "@thirdweb-dev/react";
 
-export default function NFTGallery({}) {
-  const [nfts, setNfts] = useState();
+interface NFT {
+  format: string;
+  media: string;
+  title: string;
+  symbol: string;
+  verified: string;
+  contract?: string;
+  description: string;
+}
+
+interface NFTGalleryProps {}
+
+export default function NFTGallery(props: NFTGalleryProps) {
+  const [nfts, setNfts] = useState<NFT[] | undefined>();
   const [walletOrCollectionAddress, setWalletOrCollectionAddress] =
-    useState('moistowl.eth');
-  const [fetchMethod, setFetchMethod] = useState("wallet");
-  const [pageKey, setPageKey] = useState();
-  const [spamFilter, setSpamFilter] = useState(true);
-  const [isLoading, setIsloading] = useState(false);
+    useState<string>("moistowl.eth");
+  const [fetchMethod, setFetchMethod] = useState<string>("wallet");
+  const [pageKey, setPageKey] = useState<string | undefined>();
+  const [spamFilter, setSpamFilter] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const address = useAddress();
-  const [chain, setChain] = useState(process.env.NEXT_PUBLIC_ALCHEMY_NETWORK);
+  const [chain, setChain] = useState<string>(
+    process.env.NEXT_PUBLIC_ALCHEMY_NETWORK
+  );
 
-  const changeFetchMethod = (e) => {
-    setNfts();
-    setPageKey();
-    switch (e.target.value) {
+  const changeFetchMethod = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setNfts(undefined);
+    setPageKey(undefined);
+    switch (event.target.value) {
       case "wallet":
-        setWalletOrCollectionAddress(
-          "moistowl.eth"
-        );
-
+        setWalletOrCollectionAddress("moistowl.eth");
         break;
       case "collection":
         setWalletOrCollectionAddress(
@@ -35,12 +46,13 @@ export default function NFTGallery({}) {
         setWalletOrCollectionAddress(address);
         break;
     }
-    setFetchMethod(e.target.value);
+    setFetchMethod(event.target.value);
   };
-  const fetchNFTs = async (pagekey) => {
-    if (!pageKey) setIsloading(true);
+
+  const fetchNFTs = async (pageKey?: string) => {
+    if (!pageKey) setIsLoading(true);
     const endpoint =
-      fetchMethod == "wallet" || fetchMethod == "connectedWallet"
+      fetchMethod === "wallet" || fetchMethod === "connectedWallet"
         ? "/api/getNftsForOwner"
         : "/api/getNftsForCollection";
     try {
@@ -48,30 +60,29 @@ export default function NFTGallery({}) {
         method: "POST",
         body: JSON.stringify({
           address:
-            fetchMethod == "connectedWallet"
+            fetchMethod === "connectedWallet"
               ? address
               : walletOrCollectionAddress,
-          pageKey: pagekey ? pagekey : null,
+          pageKey: pageKey ? pageKey : null,
           chain: chain,
           excludeFilter: spamFilter,
         }),
       }).then((res) => res.json());
       if (nfts?.length && pageKey) {
-        setNfts((prevState) => [...prevState, ...res.nfts]);
+        setNfts((prevState) => [...(prevState || []), ...res.nfts]);
       } else {
-        setNfts();
         setNfts(res.nfts);
       }
       if (res.pageKey) {
         setPageKey(res.pageKey);
       } else {
-        setPageKey();
+        setPageKey(undefined);
       }
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+      console.error(error);
     }
 
-    setIsloading(false);
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -113,7 +124,7 @@ export default function NFTGallery({}) {
                 onChange={(e) => {
                   setChain(e.target.value);
                 }}
-                defaultValue={process.env.ALCHEMY_NETWORK}
+                defaultValue={process.env.NEXT_PUBLIC_ALCHEMY_NETWORK}
               >
                 <option value={"ETH_MAINNET"}>Mainnet</option>
                 <option value={"MATIC_MAINNET"}>Polygon</option>
@@ -134,7 +145,7 @@ export default function NFTGallery({}) {
         </div>
       ) : (
         <div className={styles.nft_gallery}>
-          {nfts?.length && fetchMethod != "collection" && (
+          {nfts?.length && fetchMethod !== "collection" && (
             <div
               style={{
                 display: "flex",
@@ -184,16 +195,21 @@ export default function NFTGallery({}) {
     </div>
   );
 }
-function NftCard({ nft }) {
+
+interface NftCardProps {
+  nft: NFT;
+}
+
+function NftCard({ nft }: NftCardProps) {
   return (
     <div className={styles.card_container}>
       <div className={styles.image_container}>
-        {nft.format == "mp4" ? (
+        {nft.format === "mp4" ? (
           <video src={nft.media} controls>
             Your browser does not support the video tag.
           </video>
         ) : (
-          <img src={nft.media}></img>
+          <img src={nft.media} alt={nft.title} />
         )}
       </div>
       <div className={styles.info_container}>
@@ -205,13 +221,14 @@ function NftCard({ nft }) {
           <div className={styles.symbol_container}>
             <p>{nft.symbol}</p>
 
-            {nft.verified == "verified" ? (
+            {nft.verified === "verified" ? (
               <img
                 src={
                   "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/2048px-Twitter_Verified_Badge.svg.png"
                 }
                 width="20px"
                 height="20px"
+                alt="Verified"
               />
             ) : null}
           </div>
@@ -226,6 +243,7 @@ function NftCard({ nft }) {
               }
               width="15px"
               height="15px"
+              alt="Etherscan"
             />
           </div>
         </div>
