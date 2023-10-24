@@ -2,12 +2,13 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import { motion } from "framer-motion"
+// import { motion } from "framer-motion"
 import { useState } from "react";
+import { HeroAsset } from "../components/Hero/HeroAsset";
 
 
 const Home: NextPage = () => {
-  const[rotate,setRotate] = useState(false);
+  const [rotate, setRotate] = useState(false);
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -16,6 +17,7 @@ const Home: NextPage = () => {
             <div className={styles.heroBackgroundInner}>
               <Image
                 src="/hero-gradient.png"
+                priority
                 width={1490}
                 height={1390}
                 alt="Background gradient from red to blue"
@@ -24,7 +26,10 @@ const Home: NextPage = () => {
               />
             </div>
           </div>
-          <motion.div
+          <div>
+            <HeroAsset />
+          </div>
+          {/* <motion.div
             className={styles.heroAssetFrame}
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -49,7 +54,7 @@ const Home: NextPage = () => {
               quality={100}
               className={styles.heroAsset}
             />
-          </motion.div>
+          </motion.div> */}
           <div className={styles.heroBodyContainer}>
             <div className={styles.heroBody}>
               <h1 className={styles.heroTitle}>

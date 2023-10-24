@@ -15,6 +15,17 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/NftGallery.tsx", "pages/api/getNftsForCollection.ts", "pages/api/getNftsForOwner.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.jsx",
+    "**/*.js",
+    "pages/NftGallery.tsx",
+    "pages/api/getNftsForCollection.ts",
+    "pages/api/getNftsForOwner.ts",
+    "components/Hero/HeroAsset.jsx",
+    "three/examples/jsm/loaders/GLTFLoader.js"
+  ],
   "exclude": ["node_modules"]
 }

@@ -11,6 +11,11 @@
     "deploy": "next build && next export && npx thirdweb@latest upload out"
   },
   "dependencies": {
+    "@gltf-transform/core": "^3.7.4",
+    "@gltf-transform/extensions": "^3.7.4",
+    "@gltf-transform/functions": "^3.7.4",
+    "@react-three/drei": "^9.88.4",
+    "@react-three/fiber": "^8.15.4",
     "@thirdweb-dev/chains": "^0",
     "@thirdweb-dev/react": "^3.14.35",
     "@thirdweb-dev/sdk": "^3.10.54",
@@ -24,7 +29,8 @@
     "react": "^18.2",
     "react-dom": "^18.2",
     "react-hook-form": "^7.43.0",
-    "react-hot-toast": "^2.4.0"
+    "react-hot-toast": "^2.4.0",
+    "three": "^0.157.0"
   },
   "devDependencies": {
     "@types/node": "^18.11.11",

@@ -1,0 +1,9 @@
+.wrapper{
+   display: flex;
+  justify-content: center;
+  
+  height: 800px;
+   background-color:transparent !important;
+   
+   
+}
