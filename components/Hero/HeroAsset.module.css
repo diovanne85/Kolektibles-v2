@@ -1,9 +1,19 @@
 .wrapper{
    display: flex;
   justify-content: center;
-  
-  height: 800px;
+ height: 800px;
    background-color:transparent !important;
+  
    
-   
+}
+@media (max-width: 640px) {
+  .wrapper {
+    top:0;
+    height:400px;
+  }
+}
+@media (min-width: 640px) and (max-width: 960px){
+   .wrapper{
+      height: 270px;
+   }
 }

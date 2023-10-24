@@ -9,7 +9,7 @@ import styles from "./HeroAsset.module.css";
 
 export function Model(props) {
 
-  const { nodes, materials } = useGLTF("/boredApe-v3.glb");
+  const { nodes, materials } = useGLTF("/boredApe-v4.glb");
   return (
     <group {...props} dispose={null}>
       <group scale={0.05}>
@@ -63,10 +63,10 @@ export function HeroAsset() {
 
   return (
     <div className={styles.wrapper}>
-      <Canvas camera={{ left: 70, position: [-10, 0, 0] }}>
+      <Canvas camera={{ fov: 100, position: [-10, 0, 0] }}>
         <Suspense fallback={null}>
          
-          <ambientLight intensity={1} />
+          <ambientLight intensity={1}/>
           <directionalLight
             castShadow={true}
             intensity={1}

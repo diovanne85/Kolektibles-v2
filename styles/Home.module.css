@@ -20,9 +20,7 @@
   margin-right: 16px;
 }
 
-/* .hero {
-  padding-bottom: 128px;
-} */
+
 
 .heroBackground {
   position: absolute;
@@ -57,13 +55,8 @@
   margin: 24px auto 0;
   padding: 2em;
   overflow: hidden;
+ 
 }
-
-/* .heroAsset {
-  max-width: 100vw;
-  margin-bottom: 16px;
-} */
-
 .heroBodyContainer {
   width: 100%;
   padding: 0 32px;
@@ -314,8 +307,7 @@
     width: 100%;
   }
 
-  .heroTitle {
-  }
+  
 }
 
 /* Less than 640 px */
