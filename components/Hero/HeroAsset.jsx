@@ -6,44 +6,7 @@ import styles from "./HeroAsset.module.css";
 
 export function Model(props) {
   const { nodes, materials} = useGLTF("/boredApe.glb");
-  // const baseColorTexture = new THREE.TextureLoader().load(
-  //   "/textures/baseColor_1.jpg"
-  // );
-  // const normalTexture = new THREE.TextureLoader().load(
-  //   "/textures/normal_1.jpg"
-  // );
-  // const specularTexture = new THREE.TextureLoader().load(
-  //   "/textures/specular_1.png"
-  // );
-  // const metallicRoughnessTexture = new THREE.TextureLoader().load(
-  //   "/textures/metallicRoughness_1.png"
-  // );
-
-  // const phongMaterial = new THREE.MeshPhongMaterial({
-  //   map: null,
-  //   normalMap: normalTexture,
-  //   specularMap: specularTexture,
-  //   shininess: 0.5,
-  //   metalness:0.5,
-  //   roughness:0.5,
-  //   transparent: true, // Enable transparency
-  // });
-
-  // const standardMaterial = new THREE.MeshStandardMaterial({
-  //   map: null,
-  //   normalMap: normalTexture,
-  //   baseColorMap: baseColorTexture,
-  //   metalnessMap: metallicRoughnessTexture,
-  //   roughnessMap: metallicRoughnessTexture,
-  //   metalness: 0.5,
-  //   transparent: true, // Enable transparency
-  // });
-
-  // phongMaterial.side = THREE.DoubleSide;
-  // phongMaterial.needsUpdate = true;
-
-  // standardMaterial.side = THREE.DoubleSide;
-  // standardMaterial.needsUpdate = true;
+  
 
   return (
     <group {...props} dispose={null}>
