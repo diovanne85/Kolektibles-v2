@@ -1,143 +1,93 @@
-import React, { useRef} from "react";
-import { Canvas } from "@react-three/fiber";
+import * as THREE from 'three';
+import React, { Suspense} from "react";
+import { Canvas, render } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import styles from "./HeroAsset.module.css";
 
 
 export function Model(props) {
-  const gltf = useGLTF("/boredApe.glb");
 
-  return <primitive object={gltf.scene} dispose={null} />;
-
+  const { nodes, materials } = useGLTF("/boredApe.glb");
+   return (
+     <group {...props} dispose={null}>
+       <group scale={0.04}>
+         <group
+           position={[11.69, 0, 11.867]}
+           rotation={[-Math.PI / 2, 0, -Math.PI]}
+           scale={100}
+         >
+           <mesh
+             geometry={nodes.Cube_Material_0.geometry}
+             material={materials.Material}
+           />
+           <mesh
+             geometry={nodes.Cube_Materiais001_0.geometry}
+             material={materials["Materiais.001"]}
+           />
+           <mesh
+             geometry={nodes.Cube_Materiais_0.geometry}
+             material={materials.Materiais}
+           />
+           <mesh
+             geometry={nodes.Cube_Materiais006_0.geometry}
+             material={materials["Materiais.006"]}
+           />
+           <mesh
+             geometry={nodes.Cube_Materiais005_0.geometry}
+             material={materials["Materiais.005"]}
+           />
+         </group>
+         <mesh
+           geometry={nodes.Texto_Materiais_0.geometry}
+           material={materials.Materiais}
+           position={[-0.101, -102.613, 1.475]}
+           rotation={[3.142, -1.57, 3.142]}
+           scale={6.678}
+         />
+         <mesh
+           geometry={nodes.Texto001_Material_0.geometry}
+           material={materials.Material}
+           position={[3.559, -116.758, 86.848]}
+           rotation={[3.142, -1.57, 3.142]}
+           scale={29.125}
+         />
+       </group>
+     </group>
+   );
 }
 
 export function HeroAsset() {
-  const cameraPosition = [0.7, 0, 0];
-  const controlsRef = useRef();
-
-  const handleCameraZoomIn = () => {
-    cameraRef.current.position.z -= 1;
-  };
-
-  const handleCameraZoomOut = () => {
-    cameraRef.current.position.z += 1;
-  };
- 
-
   return (
     <div className={styles.wrapper}>
-      <Canvas>
-        <ambientLight 
-        intensity={1} 
-        position={[0.033,1.448,-0.070]}
-        scale={[1.706,7.980,12.821]}
-        />
-        <directionalLight 
-        intensity={1} 
-        position={[-10, 4.321, -0.827]} />
-        <Model />
-        <pointLight
-        intensity={3}
-        decay={2}
-        position={[1.441,0.224,0.043]}
-        />
-        <spotLight
-        intensity={5}
-        position={[-0.257,4.871,-0.282]}
-        angle={0.324}
-        decay={2}
-        distance={5}
-        />
-        <OrbitControls
-          ref={controlsRef}
-          enablePan={true}
-          enableRotate={true}
-          enableZoom={true}
-        />
+      <Canvas camera={{ fov: 100, position: [-7, 0, 0] }}>
+        <Suspense fallback={null}>
+          <ambientLight
+            intensity={1}
+            position={[0.033, 1.448, -0.07]}
+            scale={[1.706, 7.98, 12.821]}
+          />
+          <directionalLight
+            intensity={1}
+            position={[-10, 0, 0]}
+            pointLight={[10, 0, 0]}
+          />
+          <spotLight
+            intensity={5}
+            position={[-0.957, 4.871, -0.282]}
+            angle={0.324}
+            decay={2}
+            distance={5}
+          />
+          <pointLight position={[-0.993, 0.041, 0.145]} />
+          <hemisphereLight position={[0, 10, 0]} />
+          <Model />
+          <OrbitControls
+            enablePan={true}
+            enableRotate={true}
+            enableZoom={true}
+          />
+        </Suspense>
       </Canvas>
     </div>
   );
 }
-
-// import { Canvas, } from "@react-three/fiber";
-// import * as THREE from "three";
-// import React, { Suspense } from "react";
-// import styles from "./HeroAsset.module.css";
-// import { OrbitControls } from "@react-three/drei";
-// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-
-// export function Model(props) {
-
-// const scene = new THREE.Scene();
-//     const loader = new GLTFLoader();
-//     loader.load('/boredApe.glb', function(glb){
-//       console.log(glb)
-//       const root = glb.scene;
-//       root.scale.set(0.001,0.001,0.001)
-//       scene.add(root);
-//     }, function(xhr){
-//       console.log((xhr.loaded/xhr.total * 100) + "% loaded");
-
-//     }, function(error){
-//       console.log('an error occured')
-//     } );
-
-//       const light = new THREE.DirectionalLight(0xffffff,1)
-//       light.position.set(2,2,5)
-//       scene.add(light)
-//     // const geometry = new THREE.BoxGeometry(1,1,1)
-//     // const material = new THREE.MeshBasicMaterial({
-//     //   color: 0x00ff00
-//     // })
-//     // const boxMesh = new THREE.Mesh(geometry,material)
-//     // scene.add(boxMesh)
-
-//     // const sizes = {
-//     //   width:window.innerWidth,
-//     //   height:window.innerHeight
-
-//     // }
-//     const camera = new THREE.PerspectiveCamera(75, 0.1, 100)
-//     camera.position.set(0,1,2)
-//     scene.add(camera)
-
-//     const renderer = new THREE.WebGL1Renderer({
-//       canvas: Canvas
-//     });
-//     renderer.setSize(sizes.width,sizes.height)
-//     renderer.setPixelRatio(Math.min(window.devicePixelRatio,2))
-//     renderer.shadowMap.enabled = true
-//     renderer.gammaOutput = true
-
-//     function animate(){
-//       requestAnimationFrame(animate)
-//       renderer.render(scene, camera);
-//     }
-//     animate()
-// }
-// export function HeroAsset() {
-//   return (
-//     <div className={styles.wrapper}>
-//       <Canvas camera={{ fov: 70, position: [5, 0, 0] }}>
-//         <Model />
-//         {/* <Suspense fallback={null}>
-//           <ambientLight intensity={1} position={[-7, 0,0]} />
-//           <Model />
-//           <pointLight
-//             intensity={2}
-//             position={[0, 0.067, 19]}
-//           />
-//           <directionalLight
-//             intensity={2}
-//             position={[-9, 4.321, -0.827]}
-//           />
-//           <OrbitControls
-//             enablePan={true}
-//             enableRotate={true}
-//             enableZoom={true}
-//           />
-//         </Suspense> */}
-//       </Canvas>
-//     </div>
-//   );
-// }
