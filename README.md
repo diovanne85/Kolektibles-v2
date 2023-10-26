@@ -34,6 +34,9 @@ List any prerequisites that users or developers need to have installed before th
 - Third Web SDK
 - Alchemy SDK
 - ethers.js
+- three.js
+- next.js
+- react.js
 
 ### Installation
 
