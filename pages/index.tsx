@@ -2,7 +2,6 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import { motion } from "framer-motion"
 import { useState } from "react";
 import { HeroAsset } from "../components/Hero/HeroAsset";
 
@@ -27,7 +26,7 @@ const Home: NextPage = () => {
             </div>
           </div>
           <div
-            // className={styles.heroAssetFrame}
+            
           >
             <HeroAsset />
           </div>

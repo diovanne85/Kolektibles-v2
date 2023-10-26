@@ -62,12 +62,12 @@ export function HeroAsset() {
       <Canvas camera={{ fov: 60, position: [-7, 0, 0] }}>
         <Suspense fallback={null}>
           <ambientLight
-            intensity={2}
+            intensity={2.5}
             position={[0.96, -0.33, 0.112]}
             scale={[1.706, 7.98, 12.821]}
           />
           <directionalLight castShadow={true} intensity={10} position={[2.095, 1.039, -1.031]} />
-          <pointLight intensity={5} position={[-1.57, -0.358, 0.064]} />
+          <pointLight intensity={15} position={[0.57, 1.058, -0.564]} />
           <Model />
           <OrbitControls
             enablePan={true}
