@@ -42,7 +42,7 @@ export default function NFTGallery(props: NFTGalleryProps) {
         break;
       case "collection":
         setWalletOrCollectionAddress(
-          "0x60E4d786628Fea6478F785A6d7e704777c86a7c6"
+          "0xf07468eAd8cf26c752C676E43C814FEe9c8CF402"
         );
         break;
       case "connectedWallet":

@@ -59,7 +59,7 @@ export function Model(props) {
 export function HeroAsset() {
   return (
     <div className={styles.wrapper}>
-      <Canvas camera={{ fov: 50, position: [-7, 0, 0] }}>
+      <Canvas camera={{ fov: 60, position: [-7, 0, 0] }}>
         <Suspense fallback={null}>
           <ambientLight
             intensity={2}
@@ -73,6 +73,8 @@ export function HeroAsset() {
             enablePan={true}
             enableRotate={true}
             enableZoom={true}
+            autoRotate={true}
+            autoRotateSpeed={10}
           />
         </Suspense>
       </Canvas>
