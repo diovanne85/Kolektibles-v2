@@ -4,12 +4,18 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { useState } from "react";
 import { HeroAsset } from "../components/Hero/HeroAsset";
+import { Poppins } from "@next/font/google";
+
+const  poppins = Poppins ({
+    subsets:['latin'],
+    weight: ['700','500'],
+});
 
 
 const Home: NextPage = () => {
   const [rotate, setRotate] = useState(false);
   return (
-    <div className={styles.container}>
+    <div className={styles.container} >
       <div className={styles.content}>
         <div className={styles.hero}>
           <div className={styles.heroBackground}>

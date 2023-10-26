@@ -15,6 +15,7 @@ export function Model(props) {
           position={[11.69, 0, 11.867]}
           rotation={[-Math.PI / 2, 0, -Math.PI]}
           scale={100}
+          roughness={0.2}
         >
           <mesh
             geometry={nodes.Cube_Material_0.geometry}

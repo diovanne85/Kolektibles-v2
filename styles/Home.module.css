@@ -1,3 +1,4 @@
+
 .container {
   min-height: 99vh;
   min-width: 96vw;
@@ -78,7 +79,7 @@
   margin-bottom: 20px;
   color: #fff;
   font-size: Min(12vw, 70px);
-  font-style: normal;
+ 
   font-weight: 700;
   letter-spacing: 1.2px;
   text-align: center;
@@ -92,7 +93,8 @@
 
 .heroTitleGradient {
   padding-right: 12px;
-  font-weight: 600;
+  font-weight: 700;
+  font-family: 'Poppins',sans-serif;
 }
 
 .heroSubtitle {
