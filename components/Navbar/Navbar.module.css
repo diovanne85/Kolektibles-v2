@@ -63,7 +63,7 @@
 .navRight {
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  gap:4px;
   align-items: center;
   justify-content: center;
 }
@@ -110,5 +110,8 @@
   }
   .hideMenu {
     display: block;
+  }
+  .nav{
+    justify-content: space-around;
   }
 }
