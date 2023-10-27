@@ -1,3 +1,4 @@
+import React,{useState} from "react";
 import { ConnectWallet, useAddress } from "@thirdweb-dev/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,10 +7,33 @@ import styles from "./Navbar.module.css";
 
 export function Navbar() {
   const address = useAddress();
+  const [isOpen, setIsOpen] = useState(false);
 
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <div className={styles.navContainer}>
       <nav className={styles.nav}>
+        <div className={styles.hideMenu}>
+          <svg
+            onClick={toggleDropdown}
+            xmlns="http://www.w3.org/2000/svg"
+            fill="white"
+            height="1em"
+            viewBox="0 0 448 512"
+          >
+            <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+          </svg>
+          {!isOpen && (
+            <div className={styles.hideMenuList}>
+              <Link href="/buy">Buy</Link>
+              <Link href="/sell">Sell</Link>
+              <Link href="/NftGallery">Gallery</Link>
+            </div>
+          )}
+        </div>
+
         <div className={styles.navLeft}>
           <Link href="/" className={`${styles.homeLink} ${styles.navLeft}`}>
             <Image
@@ -33,7 +57,6 @@ export function Navbar() {
             </Link>
           </div>
         </div>
-
         <div className={styles.navRight}>
           <div className={styles.navConnect}>
             <ConnectWallet theme="dark" btnTitle="Connect Wallet" />

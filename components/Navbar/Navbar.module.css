@@ -78,18 +78,37 @@
   opacity: 0.8;
 }
 
-.homeLink {
-  font-size: 24px;
-  font-weight: 500;
-}
-
 .buttonLink:hover {
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+.hideMenu {
+  display: none;
+}
+
+.hideMenuList {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
+  left: 0.2rem;
+  top:5rem;
+  padding: 1rem 0 1rem 0;
+  margin: auto;
+  z-index: 10;
+  border-radius:0 0 10% ;
+  background-color: rgb(68, 16, 82);
+  width: 100px;
+  height: 120px;
 }
 
 /* Sreens less than 720px */
 @media (max-width: 500px) {
-  .navConnect {
+  
+  .navMiddle {
     display: none !important;
+  }
+  .hideMenu {
+    display: block;
   }
 }
