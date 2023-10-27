@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState, useEffect} from "react";
 import { ConnectWallet, useAddress } from "@thirdweb-dev/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,11 +7,16 @@ import styles from "./Navbar.module.css";
 
 export function Navbar() {
   const address = useAddress();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   const toggleDropdown = () => {
+    console.log("Toggling dropdown state");
     setIsOpen(!isOpen);
   };
+  useEffect(() => {
+     console.log("Component mounted, isOpen:", isOpen);
+    setIsOpen(true);
+  }, []);
   return (
     <div className={styles.navContainer}>
       <nav className={styles.nav}>
