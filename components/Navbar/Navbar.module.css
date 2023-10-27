@@ -63,7 +63,7 @@
 .navRight {
   display: flex;
   flex-direction: row;
-  gap:4px;
+  gap:19px;
   align-items: center;
   justify-content: center;
 }
@@ -114,5 +114,8 @@
   }
   .nav{
     justify-content: space-around;
+  }
+  .navRight{
+    gap: 4px;
   }
 }
