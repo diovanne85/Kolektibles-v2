@@ -14,11 +14,11 @@ export function Model(props) {
  
   const textMaterial = new THREE.MeshStandardMaterial({ 
     color: 0x29ffff,
-    reflectivity: 0.8,
+   
   });
   const cubeMaterial = new THREE.MeshStandardMaterial({
     color: 0x29ffff,
-    reflectivity: 0.5,
+    
   });
   const customMaterial = new THREE.MeshPhysicalMaterial({
     metalness: 0.5,
