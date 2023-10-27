@@ -25,7 +25,7 @@
     "pages/api/getNftsForCollection.ts",
     "pages/api/getNftsForOwner.ts",
     "components/Hero/HeroAsset.jsx",
-    "three/examples/jsm/loaders/GLTFLoader.js"
+    "three/examples/jsm/loaders/GLTFLoader.js",
   ],
   "exclude": ["node_modules"]
 }
