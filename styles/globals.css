@@ -22,7 +22,7 @@ body {
 background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
 
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   --color-primary: #fada3f;
   --color-secondary: #ff2136;
   --color-tertiary: #0294fe;

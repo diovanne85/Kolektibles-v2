@@ -63,7 +63,7 @@
 .navRight {
   display: flex;
   flex-direction: row;
-  gap:19px;
+  gap: 19px;
   align-items: center;
   justify-content: center;
 }
@@ -85,37 +85,40 @@
   display: none;
 }
 
+
 .hideMenuList {
   position: fixed;
   visibility: visible;
-  display:flex;
+  display: flex;
   flex-direction: column;
   text-align: center;
   gap: 1rem;
   left: 0.2rem;
-  top:5rem;
+  top: 5rem;
   padding: 1rem 0 1rem 0;
   margin: auto;
   z-index: 10;
-  border-radius:0 0 10% ;
-  background-color: rgb(68, 16, 82);
+  border-radius: 0 0 10%;
+  font-weight: 500;
+  background-color: rgb(221, 119, 221);
+  opacity: 0.8;
   width: 100px;
   height: 120px;
 }
 
 /* Sreens less than 720px */
 @media (max-width: 500px) {
-  
   .navMiddle {
     display: none !important;
   }
   .hideMenu {
     display: block;
   }
-  .nav{
+  .nav {
     justify-content: space-around;
   }
-  .navRight{
+  .navRight {
     gap: 4px;
   }
+  
 }

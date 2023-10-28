@@ -4,7 +4,7 @@
 import { useEffect, useState } from "react";
 import styles from "../styles/NftExplorer.module.css";
 import { useAddress } from "@thirdweb-dev/react";
-
+import { MutatingDots } from "react-loader-spinner";
 
 interface NFT {
   format: string;
@@ -123,7 +123,15 @@ export default function NFTExplorer(props: NFTExplorerProps) {
               placeholder="Insert NFTs contract or wallet address"
             ></input>
             <div onClick={() => fetchNFTs()} className={styles.button_black}>
-              <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg"   fill='white' height="1.7em" viewBox="0 -10 500 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+              <svg
+                className={styles.icon}
+                xmlns="http://www.w3.org/2000/svg"
+                fill="white"
+                height="1.7em"
+                viewBox="0 -10 500 512"
+              >
+                <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+              </svg>
             </div>
             <div className={styles.select_container}>
               <select
@@ -144,7 +152,20 @@ export default function NFTExplorer(props: NFTExplorerProps) {
 
       {isLoading ? (
         <div className={styles.loading_box}>
-          <p>Loading...</p>
+          
+          
+            <MutatingDots
+              height="100"
+              width="100"
+              color="#4fa94d"
+              secondaryColor="#4fa94d"
+              radius="12.5"
+              ariaLabel="mutating-dots-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
+          
         </div>
       ) : (
         <div className={styles.nft_gallery}>

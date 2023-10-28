@@ -7,18 +7,14 @@
 }
 
 .nft_gallery {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   gap: 1%;
   width: 100%;
-
-  /* display: flex;
+  display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 1424px;
   align-items: center;
-  padding: 0 1.5rem; */
+  padding: 0 1.5rem;
 }
 
 .inputs_container {

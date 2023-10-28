@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { useState, useEffect } from "react";
 import { HeroAsset } from "../components/Hero/HeroAsset";
-import { ThreeCircles } from "react-loader-spinner";
+import { MutatingDots } from "react-loader-spinner";
 
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(false);
@@ -21,17 +21,16 @@ const Home: NextPage = () => {
     <div className={styles.container}>
       {loading ? (
         <i className={styles.threeCircles}>
-          <ThreeCircles
+          <MutatingDots
             height="100"
             width="100"
             color="#4fa94d"
+            secondaryColor="#4fa94d"
+            radius="12.5"
+            ariaLabel="mutating-dots-loading"
             wrapperStyle={{}}
             wrapperClass=""
             visible={true}
-            ariaLabel="three-circles-rotating"
-            outerCircleColor="red"
-            innerCircleColor="blue"
-            middleCircleColor="white"
           />
         </i>
       ) : (
