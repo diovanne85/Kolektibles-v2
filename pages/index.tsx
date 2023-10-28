@@ -14,7 +14,7 @@ const Home: NextPage = () => {
         <div className={styles.hero}>
           <div className={styles.heroBackground}>
             <div className={styles.heroBackgroundInner}>
-              <Image
+              {/* <Image
                 src="/hero-gradient.png"
                 priority
                 width={1490}
@@ -22,7 +22,7 @@ const Home: NextPage = () => {
                 alt="Background gradient from red to blue"
                 quality={100}
                 className={styles.gradient}
-              />
+              /> */}
             </div>
           </div>
           <div
@@ -37,7 +37,7 @@ const Home: NextPage = () => {
                   Kolektibles NFT Marketplaces
                 </span>
                 <br />
-                faster than ever.
+                Buy and Sell.
               </h1>
               <p className={styles.heroSubtitle}>
                 <Link className={styles.link} href="/" target="">

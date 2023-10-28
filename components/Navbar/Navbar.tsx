@@ -5,6 +5,7 @@ import Link from "next/link";
 import styles from "./Navbar.module.css";
 
 
+
 export function Navbar() {
   const address = useAddress();
   const [isOpen, setIsOpen] = useState(true);
@@ -34,7 +35,7 @@ export function Navbar() {
             <div className={styles.hideMenuList}>
               <Link href="/buy">Buy</Link>
               <Link href="/sell">Sell</Link>
-              <Link href="/NftGallery">Gallery</Link>
+              <Link href="/NftExplorer">Nft Explorer</Link>
             </div>
           )}
         </div>
@@ -57,11 +58,12 @@ export function Navbar() {
             <Link href="/sell" className={styles.link}>
               Sell
             </Link>
-            <Link href="/NftGallery" className={styles.link}>
-              Gallery
+            <Link href="/NftExplorer" className={styles.link}>
+              Nft Explorer
             </Link>
           </div>
         </div>
+        
         <div className={styles.navRight}>
           <div className={styles.navConnect}>
             <ConnectWallet theme="dark" btnTitle="Connect Wallet" />

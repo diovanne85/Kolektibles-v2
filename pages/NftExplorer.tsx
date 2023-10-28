@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from "react";
-import styles from "../styles/NftGallery.module.css";
+import styles from "../styles/NftExplorer.module.css";
 import { useAddress } from "@thirdweb-dev/react";
 
 
@@ -18,9 +18,9 @@ interface NFT {
   tokenId:string;
 }
 
-interface NFTGalleryProps {}
+interface NFTExplorerProps {}
 
-export default function NFTGallery(props: NFTGalleryProps) {
+export default function NFTExplorer(props: NFTExplorerProps) {
   const [nfts, setNfts] = useState<NFT[] | undefined>();
   const [walletOrCollectionAddress, setWalletOrCollectionAddress] =
     useState<string>("moistowl.eth");
@@ -46,7 +46,7 @@ export default function NFTGallery(props: NFTGalleryProps) {
         );
         break;
       case "connectedWallet":
-        setWalletOrCollectionAddress('address');
+        setWalletOrCollectionAddress('connected wallet');
         break;
     }
     setFetchMethod(event.target.value);
@@ -122,6 +122,9 @@ export default function NFTGallery(props: NFTGalleryProps) {
               }}
               placeholder="Insert NFTs contract or wallet address"
             ></input>
+            <div onClick={() => fetchNFTs()} className={styles.button_black}>
+              <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg"   fill='white' height="1.7em" viewBox="0 -10 500 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+            </div>
             <div className={styles.select_container}>
               <select
                 onChange={(e) => {
@@ -134,9 +137,6 @@ export default function NFTGallery(props: NFTGalleryProps) {
                 <option value={"ETH_GOERLI"}>Goerli</option>
                 <option value={"MATIC_MUMBAI"}>Mumbai</option>
               </select>
-            </div>
-            <div onClick={() => fetchNFTs()} className={styles.button_black}>
-              <a>Search</a>
             </div>
           </div>
         </div>

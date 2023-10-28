@@ -20,7 +20,7 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.jsx",
-    "pages/NftGallery.tsx",
+    "pages/NftExplorer.tsx",
     "pages/api/getNftsForCollection.ts",
     "pages/api/getNftsForOwner.ts",
     "components/Hero/HeroAsset.jsx",

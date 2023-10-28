@@ -95,9 +95,9 @@ export function HeroAsset() {
           <pointLight intensity={4} position={[-1.057, -0.664, 0]} />
           <spotLight intensity={5} position={[5, 10, 7.5]} angle={0.314} />
           <OrbitControls
-            enablePan={true}
-            enableRotate={true}
-            enableZoom={true}
+            enablePan={false}
+            enableRotate={false}
+            enableZoom={false}
             autoRotate={true}
             autoRotateSpeed={10}
           />
