@@ -30,7 +30,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 .fetch_selector_container {
@@ -86,6 +86,7 @@
   border: 1px solid #cfd9f0;
   border-radius: 8px;
   width: 528px;
+  position: relative;
 }
 
 .buttons_under_input {
@@ -93,23 +94,21 @@
 }
 
 .button_black {
-  position: absolute;
-  margin-left: 21.3rem;
+  position: relative;
   padding: 0px 14px;
   width: 3rem;
-  height: 38px;
+  background-color: #cfd9f0;
+  height: 37px;
   border-radius: 12px;
   cursor: pointer;
 }
 .icon {
   padding-top: 8px;
-}
-.icon:hover{
   fill: #050505;
-  transition: all 0.1s ease-in-out;
 }
+
 .button_black:hover {
-  background-color: #c0bbbb;
+  background-color: #8d868d;
   transition: all 0.1s ease-in-out;
 }
 
