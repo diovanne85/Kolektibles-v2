@@ -35,7 +35,7 @@ export function Navbar() {
             <div className={styles.hideMenuList}>
               <Link href="/buy">Buy</Link>
               <Link href="/sell">Sell</Link>
-              <Link href="/NftExplorer">Nft Explorer</Link>
+              <Link href="/NftExplorer">NFT Explorer</Link>
             </div>
           )}
         </div>
@@ -59,7 +59,7 @@ export function Navbar() {
               Sell
             </Link>
             <Link href="/NftExplorer" className={styles.link}>
-              Nft Explorer
+              NFT Explorer
             </Link>
           </div>
         </div>

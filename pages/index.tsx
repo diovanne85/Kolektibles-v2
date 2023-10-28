@@ -56,7 +56,14 @@ const Home: NextPage = () => {
               <div className={styles.heroBody}>
                 <h1 className={styles.heroTitle}>
                   <span className={styles.heroTitleGradient}>
-                    Kolektibles NFT Marketplaces
+                    Kolektibles NFT
+                    <img
+                      className={styles.logo}
+                      alt="/"
+                      width="150"
+                      height="150"
+                      src="/logo.png"
+                    />
                   </span>
                   <br />
                   Buy and Sell.
@@ -66,7 +73,7 @@ const Home: NextPage = () => {
                     Kolektibles
                   </Link>{" "}
                   gives you the nft you need to collect audited contracts and
-                  Quality NFT marketplaces for the <b>collections</b>,{" "}
+                  Quality NFT marketplace for the <b>collections</b>,{" "}
                   <i>not Prices</i>.
                 </p>
 

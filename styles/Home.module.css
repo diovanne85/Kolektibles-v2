@@ -92,8 +92,12 @@
     position: absolute;
     top: -72%;
 }
-
-.heroTitleGradient {
+.logo{
+  position: absolute;
+  border:none;
+top: -1.5rem;
+}
+.heroTitleGradient{
   padding-right: 12px;
   font-weight: 700;
   font-family: 'Poppins',sans-serif;
@@ -309,6 +313,9 @@
     gap: 16px;
   }
 
+  .logo{
+  display: none;
+}
   .tab {
     width: 100%;
   }
@@ -326,7 +333,9 @@
     margin-top: -48px;
     font-size: 38px;
   }
-
+.logo{
+  display: none;
+}
   .heroCtaContainer {
     flex-direction: column;
     gap: 0px;
@@ -347,7 +356,9 @@
     margin-top: -32px;
     font-size: 60px;
   }
-
+.logo{
+  display: none;
+}
   .heroAsset {
     max-height: 540px;
   }
