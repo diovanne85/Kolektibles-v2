@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei";
+import { Environment,OrbitControls, useGLTF } from "@react-three/drei";
 import styles from "./HeroAsset.module.css";
 import * as THREE from "three";
 
@@ -21,9 +21,8 @@ export function Model(props) {
     
   });
   const customMaterial = new THREE.MeshPhysicalMaterial({
-    metalness: 0.5,
-    sheenRoughness: 0.2,
-    roughness: 0.1,
+    metalness: 1,
+    roughness: 0.01,
     color: 0xffffff,
     reflectivity: 0.2,
   });
@@ -83,6 +82,7 @@ export function HeroAsset() {
     <div className={styles.wrapper}>
       <Canvas camera={{ fov: 60, position: [-7, 0, 0] }}>
         <Suspense fallback={null}>
+          <Environment preset='forest' />
           <ambientLight intensity={0.5} position={[0.85, -0.035, -1.084]} />
           <directionalLight
             castShadow={true}
@@ -95,11 +95,11 @@ export function HeroAsset() {
           <pointLight intensity={4} position={[-1.057, -0.664, 0]} />
           <spotLight intensity={5} position={[5, 10, 7.5]} angle={0.314} />
           <OrbitControls
-            enablePan={false}
+            enablePan={true}
             enableRotate={false}
-            enableZoom={false}
+            enableZoom={true}
             autoRotate={true}
-            autoRotateSpeed={10}
+            autoRotateSpeed={6}
           />
         </Suspense>
       </Canvas>
