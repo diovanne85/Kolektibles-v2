@@ -4,6 +4,7 @@ import { Navbar } from "../components/Navbar/Navbar";
 import NextNProgress from "nextjs-progressbar";
 import { NETWORK } from "../const/contractAddresses";
 import "../styles/globals.css";
+import FacebookMsg from "../components/FacebookMsg";
 
 
 
@@ -23,6 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       />
       <Navbar />
       <Component {...pageProps} />
+      <FacebookMsg />
     </ThirdwebProvider>
   );
 }
